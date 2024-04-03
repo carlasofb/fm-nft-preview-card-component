@@ -1,0 +1,154 @@
+// Variables
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
+// Colors
+$primary--soft-blue: hsl(215, 51%, 70%);
+$primary-cyan: hsl(178, 100%, 50%);
+
+$main-background-color: hsl(217, 54%, 11%);
+$card-background-color: hsl(216, 50%, 16%);
+$color-divider: hsla(215, 32%, 27%, 10%);
+
+$main-white: hsl(0, 0%, 100%);
+
+@font-face {
+  font-family: "Outfit";
+  src: url(../assets/fonts/Outfit-VariableFont_wght.ttf) format("truetype");
+}
+
+// Font sizes
+$main-text-size: 18px;
+
+body {
+  font-size: $main-text-size;
+  font-family: "Outfit", Arial, Helvetica, sans-serif;
+  background-color: $main-background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  max-width: 300px;
+  background-color: $card-background-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.card-header {
+  padding: 20px;
+  position: relative;
+  max-width: 300px;
+}
+
+/* The overlay effect (full height and width) - lays on top of the container and over the image */
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+  margin: 20px;
+  opacity: 0;
+  height: 260px;
+  transition: 0.3s ease;
+  background-color: $primary-cyan;
+  backface-visibility: hidden;
+}
+
+/* When you mouse over the container, fade in the overlay icon*/
+.card-header:hover .overlay {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* The icon inside the overlay is positioned in the middle vertically and horizontally */
+.icon {
+  display: none;
+  color: $main-white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.card-header:hover .overlay .icon {
+  display: block;
+  opacity: 1;
+}
+
+.card-content {
+  padding: 0 20px 20px 20px;
+}
+
+.nft-image {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}
+
+.nft-name,
+.nft-author-link {
+  text-decoration: none;
+  color: $main-white;
+}
+
+.nft-name:hover,
+.nft-author-link:hover {
+  color: $primary-cyan;
+}
+
+.nft-description {
+  font-size: 15px;
+  color: $primary--soft-blue;
+  font-weight: 300;
+}
+
+.nft-infos {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.4px solid $primary--soft-blue;
+
+  .nft-price {
+    color: $primary-cyan;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nft-time-left {
+    color: $primary--soft-blue;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nft-price-content,
+  .nft-time-left-content {
+    margin-left: 8px;
+  }
+}
+
+.nft-author {
+  font-size: 14px;
+  color: $primary--soft-blue;
+  display: flex;
+  align-items: center;
+
+  .nft-author-image {
+    border-radius: 50%;
+    border: 1px solid $main-white;
+  }
+
+  .nft-author-text {
+    margin-left: 8px;
+  }
+}
